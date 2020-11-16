@@ -1,7 +1,3 @@
 11111111
-cuixm
-master
-mmmmmmmm
-cuix
-meger
 
+version1
