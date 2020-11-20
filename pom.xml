@@ -4,7 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>chapter</module>
+        <module>chapter5</module>
+        <module>chapter6</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
