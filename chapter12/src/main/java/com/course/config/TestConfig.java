@@ -19,7 +19,6 @@ public class TestConfig {
     //添加用户信息接口
     public static String addUserUrl;
 
-
     //用来存储cookies信息的变量
     public static CookieStore store;
     //声明http客户端

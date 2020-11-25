@@ -15,7 +15,6 @@ public class ConfigFile {
         String testUrl;
         if(name == InterfaceName.GETUSERLIST){
             uri = bundle.getString("getUserList.uri");
-
         }
 
         if(name == InterfaceName.LOGIN){

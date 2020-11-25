@@ -1,10 +1,10 @@
 package com.course.cases;
 
-import com.tester.model.InterfaceName;
-import com.tester.config.TestConfig;
-import com.tester.model.LoginCase;
-import com.tester.utils.ConfigFile;
-import com.tester.utils.DatabaseUtil;
+import com.course.model.InterfaceName;
+import com.course.config.TestConfig;
+import com.course.model.LoginCase;
+import com.course.utils.ConfigFile;
+import com.course.utils.DatabaseUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -20,7 +20,6 @@ import java.io.IOException;
 
 public class LoginTest {
 
-
     @BeforeTest(groups = "loginTrue",description = "测试准备工作,获取HttpClient对象")
     public void beforeTest(){
         TestConfig.defaultHttpClient = new DefaultHttpClient();
@@ -31,43 +30,31 @@ public class LoginTest {
         TestConfig.addUserUrl = ConfigFile.getUrl(InterfaceName.ADDUSERINFO);
     }
 
-
-
-
     @Test(groups = "loginTrue",description = "用户成功登陆接口")
     public void loginTrue() throws IOException {
-
         SqlSession session = DatabaseUtil.getSqlSession();
         LoginCase loginCase = session.selectOne("loginCase",1);
         System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
 
         //下边的代码为写完接口的测试代码
-        String result = getResult(loginCase);
+        //String result = getResult(loginCase);
         //处理结果，就是判断返回结果是否符合预期
-        Assert.assertEquals(loginCase.getExpected(),result);
-
-
+        //Assert.assertEquals(loginCase.getExpected(),result);
     }
 
-    @Test(description = "用户登陆失败接口")
+    @Test(groups = "loginFailed",description = "用户登陆失败接口")
     public void loginFalse() throws IOException {
         SqlSession session = DatabaseUtil.getSqlSession();
         LoginCase loginCase = session.selectOne("loginCase",2);
         System.out.println(loginCase.toString());
         System.out.println(TestConfig.loginUrl);
 
-
-
         //下边的代码为写完接口的测试代码
-        String result = getResult(loginCase);
+        //String result = getResult(loginCase);
         //处理结果，就是判断返回结果是否符合预期
-        Assert.assertEquals(loginCase.getExpected(),result);
-
+        //Assert.assertEquals(loginCase.getExpected(),result);
     }
-
-
-
 
     private String getResult(LoginCase loginCase) throws IOException {
         //下边的代码为写完接口的测试代码
