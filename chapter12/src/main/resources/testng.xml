@@ -33,6 +33,11 @@
                     <include name="getUserListInfo"/>
                 </methods>
             </class>
+            <class name="com.course.cases.a">
+                <methods>
+                    <include name="main"/>
+                </methods>
+            </class>
         </classes>
 
     </test>

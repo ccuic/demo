@@ -21,16 +21,16 @@ public class GetUserInfoListTest {
 
     @Test(dependsOnGroups="loginTrue",description = "获取性别为男的用户信息")
     public void getUserListInfo() throws IOException, InterruptedException {
-        SqlSession session = DatabaseUtil.getSqlSession();
-        GetUserListCase getUserListCase = session.selectOne("getUserListCase",1);
-        System.out.println(getUserListCase.toString());
-        System.out.println(TestConfig.getUserListUrl);
-
-//        //下边为写完接口的代码
+//        SqlSession session = DatabaseUtil.getSqlSession();
+//        GetUserListCase getUserListCase = session.selectOne("getUserListCase",1);
+//        System.out.println(getUserListCase.toString());
+//        System.out.println(TestConfig.getUserListUrl);
+//
+////        //下边为写完接口的代码
 //        JSONArray resultJson = getJsonResult(getUserListCase);
-//        /**
-//         * 可以先讲
-//         */
+////        /**
+////         * 可以先讲
+////         */
 //        Thread.sleep(2000);
 //        List<User> userList = session.selectList(getUserListCase.getExpected(),getUserListCase);
 //        for(User u : userList){
@@ -44,8 +44,6 @@ public class GetUserInfoListTest {
 //            JSONObject actual = (JSONObject) userListJson.get(i);
 //            Assert.assertEquals(expect.toString(), actual.toString());
 //        }
-
-
     }
 
     private JSONArray getJsonResult(GetUserListCase getUserListCase) throws IOException {

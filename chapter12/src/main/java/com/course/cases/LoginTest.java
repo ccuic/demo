@@ -38,9 +38,9 @@ public class LoginTest {
         System.out.println(TestConfig.loginUrl);
 
         //下边的代码为写完接口的测试代码
-        //String result = getResult(loginCase);
+        String result = getResult(loginCase);
         //处理结果，就是判断返回结果是否符合预期
-        //Assert.assertEquals(loginCase.getExpected(),result);
+        Assert.assertEquals(loginCase.getExpected(),result);
     }
 
     @Test(groups = "loginFailed",description = "用户登陆失败接口")
@@ -51,9 +51,9 @@ public class LoginTest {
         System.out.println(TestConfig.loginUrl);
 
         //下边的代码为写完接口的测试代码
-        //String result = getResult(loginCase);
+        String result = getResult(loginCase);
         //处理结果，就是判断返回结果是否符合预期
-        //Assert.assertEquals(loginCase.getExpected(),result);
+        Assert.assertEquals(loginCase.getExpected(),result);
     }
 
     private String getResult(LoginCase loginCase) throws IOException {

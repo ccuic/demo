@@ -11,7 +11,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/course?characterEncoding=UTF-8&&serverTimezone=GMT
     username: root
-    password: admin
+    password: 111111
 
 mybatis:
   type-aliases-package: com.course.model
