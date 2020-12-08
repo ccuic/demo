@@ -60,6 +60,8 @@ public class UpdateUserInfoTest {
 //
 //        Assert.assertNotNull(user);
 //        Assert.assertNotNull(result);
+        String result=null;
+        Assert.assertNotNull(result);
     }
 
 
