@@ -5,6 +5,11 @@
 
     <test name="用户管理系统测试用例">
         <classes>
+            <class name="com.course.cases.CuiShouFindTest">
+                <methods>
+                    <include name="loginTrue2"/>
+                </methods>
+            </class>
             <class name="com.course.cases.LoginTest">
                 <methods>
                     <include name="loginTrue"/>
