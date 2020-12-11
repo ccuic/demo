@@ -1,5 +1,6 @@
 package com.course.utils;
 
+import com.course.model.AuthName;
 import com.course.model.InterfaceName;
 
 import java.util.Locale;
@@ -9,6 +10,13 @@ public class ConfigFile {
 
    private static ResourceBundle bundle= ResourceBundle.getBundle("application", Locale.CHINA);;
 
+    public static String getProp(AuthName name){
+        String result = "";
+        if(name == AuthName.AUTH){
+            result = bundle.getString("authValue");
+        }
+        return result;
+    }
     public static String getUrl(InterfaceName name){
         String address = bundle.getString("test.url");
         String uri = "";

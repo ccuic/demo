@@ -24,4 +24,8 @@ public class TestConfig {
     //声明http客户端
     public static DefaultHttpClient defaultHttpClient;
 
+
+    //登陆催收系统Authorization
+    public static String Auth;
+
 }

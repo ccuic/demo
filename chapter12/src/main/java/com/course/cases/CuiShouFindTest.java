@@ -1,17 +1,19 @@
 package com.course.cases;
 
+import com.alibaba.fastjson.JSONObject;
 import com.course.config.TestConfig;
+import com.course.model.AuthName;
 import com.course.model.InterfaceName;
 import com.course.model.LoginCase;
 import com.course.utils.ConfigFile;
 import com.course.utils.DatabaseUtil;
+import com.course.utils.HttpUtil;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.apache.ibatis.session.SqlSession;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -20,15 +22,10 @@ import java.io.IOException;
 
 public class CuiShouFindTest {
 
-//    @BeforeTest(groups = "loginTrue",description = "测试准备工作,获取HttpClient对象")
-//    public void beforeTest(){
-//        TestConfig.defaultHttpClient = new DefaultHttpClient();
-//        TestConfig.getUserInfoUrl = ConfigFile.getUrl(InterfaceName.GETUSERINFO);
-//        TestConfig.getUserListUrl = ConfigFile.getUrl(InterfaceName.GETUSERLIST);
-//        TestConfig.loginUrl = ConfigFile.getUrl(InterfaceName.LOGIN);
-//        TestConfig.updateUserInfoUrl = ConfigFile.getUrl(InterfaceName.UPDATEUSERINFO);
-//        TestConfig.addUserUrl = ConfigFile.getUrl(InterfaceName.ADDUSERINFO);
-//    }
+    @BeforeTest(groups = "loginTrue",description = "测试准备工作,获取Authorization对象")
+    public void beforeTest(){
+        TestConfig.Auth = ConfigFile.getProp(AuthName.AUTH);
+    }
 
     @Test(groups = "CuiShouFind",description = "催收系统查询接口")
     public void loginTrue2() throws IOException {
@@ -38,26 +35,12 @@ public class CuiShouFindTest {
         System.out.println(TestConfig.loginUrl);
 
         //下边的代码为写完接口的测试代码
-        String result = getResult(loginCase);
+        String result = getResult_Utils();
         //处理结果，就是判断返回结果是否符合预期
         if(result.contains("操作成功"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
-
-//    @Test(groups = "loginFailed",description = "用户登陆失败接口")
-//    public void loginFalse() throws IOException {
-//        SqlSession session = DatabaseUtil.getSqlSession();
-//        LoginCase loginCase = session.selectOne("loginCase",2);
-//        System.out.println(loginCase.toString());
-//        System.out.println(TestConfig.loginUrl);
-//
-//        //下边的代码为写完接口的测试代码
-//        String result = getResult(loginCase);
-//        //处理结果，就是判断返回结果是否符合预期
-//        Assert.assertEquals(loginCase.getExpected(),result);
-//    }
-
     private String getResult(LoginCase loginCase) throws IOException {
         //下边的代码为写完接口的测试代码
         HttpPost post = new HttpPost("http://172.16.1.83:30002/api/clock/remind/list");
@@ -87,5 +70,22 @@ public class CuiShouFindTest {
         return result;
     }
 
-
+    private String getResult_Utils() throws IOException {
+        //下边的代码为写完接口的测试代码
+        String url="http://172.16.1.83:30002/api/clock/remind/list";
+        JSONObject params = new JSONObject();
+        params.put("pageNum",1);
+        params.put("pageSize",20);
+        params.put("order","");
+        params.put("remindType","");
+        params.put("acctNo","3_18071017A3D01B97475041E58B6D0BE6F13F20A5");
+        params.put("startTime","");
+        params.put("endTime","");
+        String authName="Authorization";
+        String authValue=TestConfig.Auth;
+        JSONObject jsonObject= HttpUtil.post_with_Auth(url,params,authName,authValue);
+        System.out.println(jsonObject);
+        //TestConfig.store = TestConfig.defaultHttpClient.getCookieStore();
+        return jsonObject.toJSONString();
+    }
 }
