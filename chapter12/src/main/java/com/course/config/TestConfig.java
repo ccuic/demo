@@ -7,7 +7,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 @Data
 public class TestConfig {
-
+    //IVR_URL
+    public static String strIVR_URL;
     //登陆接口uri
     public static String loginUrl;
     //更新用户信息接口uri

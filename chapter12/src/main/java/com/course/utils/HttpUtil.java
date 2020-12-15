@@ -167,7 +167,47 @@ public class HttpUtil {
         }
         return jsonObject;
     }
-
+//实验
+public static JSONObject post_with_String(String url, String strParam){
+    CloseableHttpClient httpClient = null;
+    HttpPost httpPost = null;
+    JSONObject jsonObject = null;
+    try {
+        httpClient = HttpClients.createDefault();
+        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(20000).setConnectTimeout(20000).build();
+        httpPost = new HttpPost(url);
+        httpPost.setConfig(requestConfig);
+        StringEntity entity = new StringEntity(strParam,"utf-8");
+        httpPost.setEntity(entity);
+        httpPost.setHeader("Content-Type","application/json; charset=utf-8");
+        CloseableHttpResponse response = httpClient.execute(httpPost);
+        String status = response.getStatusLine().toString();
+        if(!status.contains("200")){
+            System.out.println("请求失败");
+            return null;
+        }
+        System.out.println(response.getParams());
+        HttpEntity httpEntity = response.getEntity();
+        jsonObject = JSONObject.parseObject(EntityUtils.toString(response.getEntity(),"UTF-8"));
+        EntityUtils.consume(httpEntity);
+    } catch (ClientProtocolException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }finally{
+        try {
+            if(httpPost!=null){
+                httpPost.releaseConnection();
+            }
+            if(httpClient!=null){
+                httpClient.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    return jsonObject;
+}
     public static JSONObject post_with_Auth(String url, JSONObject params,String authName,String authValue){
         CloseableHttpClient httpClient = null;
         HttpPost httpPost = null;
