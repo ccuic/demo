@@ -30,7 +30,7 @@ public class IVRTest {
     public void getLoanInfo() throws IOException {
         String jiekou_url="/info/ivr/getLoanInfo";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = gongyong(url,number);
         System.out.println("================ "+result);
         //处理结果，就是判断返回结果是否符合预期
@@ -44,7 +44,7 @@ public class IVRTest {
     public void getActualAmount() throws IOException {
         String jiekou_url="/info/ivr/getActualAmount";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = gongyong(url,number);
         System.out.println("================ "+result);
         //处理结果，就是判断返回结果是否符合预期
@@ -57,7 +57,7 @@ public class IVRTest {
     public void userInfo() throws IOException {
         String jiekou_url="/info/userInfo";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
 
         String result = gongyong(url,number);
         System.out.println("================ "+result);
@@ -71,7 +71,7 @@ public class IVRTest {
     public void sendSms_email() throws IOException {
         String jiekou_url="/ivr/sendSms";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"email\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"email\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
 
         String result = gongyong(url,number);
         System.out.println("================ "+result);
@@ -85,7 +85,7 @@ public class IVRTest {
     public void sendSms_bankCard() throws IOException {
         String jiekou_url="/ivr/sendSms";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"bankCard\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"bankCard\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
 
         String result = gongyong(url,number);
         System.out.println("================ "+result);
@@ -99,7 +99,7 @@ public class IVRTest {
     public void sendSms_repay() throws IOException {
         String jiekou_url="/ivr/sendSms";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"repay\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"repay\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
 
         String result = gongyong(url,number);
         System.out.println("================ "+result);
@@ -113,7 +113,7 @@ public class IVRTest {
     public void sendSms_cancel() throws IOException {
         String jiekou_url="/ivr/sendSms";
         String url= TestConfig.strIVR_URL+jiekou_url;
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"cancel\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13810381202\",\"type\":\"cancel\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
 
         String result = gongyong(url,number);
         System.out.println("================ "+result);

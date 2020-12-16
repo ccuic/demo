@@ -107,7 +107,7 @@ public class EncryptTest {
 
 	public static void main(String[] args) {
 		String key = "1de11b884b0139815aa13104342c1c63";
-		String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13621094965\",\"type\":\"email\"},,\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a04\"}\n";
+		String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13621094965\",\"type\":\"email\"},,\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
 		/**
 		 * AES 默认加密模式
 		 */
