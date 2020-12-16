@@ -30,7 +30,7 @@ public class I53userInfo {
     public void f1() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a05\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("签名校验失败"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -38,7 +38,7 @@ public class I53userInfo {
     public void f2() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("签名校验失败"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -46,7 +46,7 @@ public class I53userInfo {
     public void f3() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("签名校验失败"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
