@@ -10,6 +10,7 @@ public class IVRUtils {
 		JSONObject jsonObject= HttpUtil.post_with_String(url,encodedNumber);
 		//下边的代码为写完接口的测试代码
 		String result = jsonObject.toJSONString();
+		System.out.println("================ "+result);
 		return result;
 	}
 }
