@@ -13,4 +13,22 @@ public class IVRUtils {
 		System.out.println("================ "+result);
 		return result;
 	}
+	public static boolean strContain(String str,String a,String b) {
+		if(str.contains(a) && str.contains(b))
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public static boolean strContain(String str,String a) {
+		if(str.contains(a))
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

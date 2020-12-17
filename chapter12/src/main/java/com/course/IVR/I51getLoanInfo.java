@@ -23,7 +23,9 @@ public class I51getLoanInfo {
     public void s1() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"bankName\":\"中国建设银行\",\"shortBankNum\":\"2199\",\"status\":5"))
+        String a="\"bankName\":\"中国建设银行\",\"shortBankNum\":\"2199\",\"status\":5";
+        String b="\"msg\":\"execute successful\",\"code\":1000";
+        if(IVRUtils.strContain(result,a,b))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -31,15 +33,19 @@ public class I51getLoanInfo {
     public void s2() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15309344296\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"status\":4"))
+        String a="\"status\":4";
+        if(IVRUtils.strContain(result,a))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
-    @Test(groups = "I51getLoanInfo")//放款失败，有失败原因
+    @Test(groups = "I51getLoanInfo")//放款失败，有失败原因18500804170  状态有问题
+    // 放款状态（可还款/放款中/放款失败/放款额度达到限制）    是 template_log的status字段15001306599
     public void s3() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18500804170\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13899882623\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"status\":6")  && result.contains("\"haveReason\":true"))
+        String a="\"status\":6";
+        String b="\"haveReason\":true";
+        if(IVRUtils.strContain(result,a,b))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -47,7 +53,9 @@ public class I51getLoanInfo {
     public void s4() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18919890548\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"status\":6")  && result.contains("\"haveReason\":false"))
+        String a="\"status\":6";
+        String b="\"haveReason\":false";
+        if(IVRUtils.strContain(result,a,b))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -63,7 +71,7 @@ public class I51getLoanInfo {
     public void f1() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a05\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("签名校验失败"))
+        if(result.contains("\"msg\":\"签名校验失败\",\"code\":1003"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -71,7 +79,7 @@ public class I51getLoanInfo {
     public void f2() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("签名校验失败"))
+        if(result.contains("\"msg\":\"签名校验失败\",\"code\":1003"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -79,7 +87,7 @@ public class I51getLoanInfo {
     public void f3() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("签名校验失败"))
+        if(result.contains("\"msg\":\"签名校验失败\",\"code\":1003"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -87,7 +95,7 @@ public class I51getLoanInfo {
     public void f4() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolf1\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"签名校验失败\",\"code\":1003"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -95,7 +103,7 @@ public class I51getLoanInfo {
     public void f5() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"签名校验失败\",\"code\":1003"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -103,7 +111,7 @@ public class I51getLoanInfo {
     public void f6() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"sign\":\"\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"签名校验失败\",\"code\":1003"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -111,7 +119,7 @@ public class I51getLoanInfo {
     public void f7() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("success"))//不校验businessLine合法性，返回success
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -119,7 +127,7 @@ public class I51getLoanInfo {
     public void f8() throws IOException {
         String number = "{\"param\":{\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"参数异常\",\"code\":9000"))//
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -127,7 +135,7 @@ public class I51getLoanInfo {
     public void f9() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan2\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("success"))//不校验businessLine合法性，返回success
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -135,7 +143,7 @@ public class I51getLoanInfo {
     public void f10() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111aa\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"手机号非法\",\"code\":1004"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -143,7 +151,7 @@ public class I51getLoanInfo {
     public void f11() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"手机号非法\",\"code\":1004"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
@@ -151,7 +159,7 @@ public class I51getLoanInfo {
     public void f12() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("success"))
+        if(result.contains("\"msg\":\"手机号非法\",\"code\":1004"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
