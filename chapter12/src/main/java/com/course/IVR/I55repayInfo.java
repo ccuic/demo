@@ -31,15 +31,15 @@ public class I55repayInfo {
     public void s2() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15010695238\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":2,\"failCode\":2}"))
+        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":2,\"failCode\":1}"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
     @Test(groups = "I55repayInfo")//result=2代收失败，failCode=1原因不是“余额不足”
     public void s3() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18691020001\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18173855667\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":2,\"failCode\":99}"))
+        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":2}"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
