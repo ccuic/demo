@@ -12,6 +12,7 @@
                     <include name="s3"/>
                     <include name="s4"/>
                     <include name="s5"/>
+                    <include name="s6"/>
                     <include name="f1"/>
                     <include name="f2"/>
                     <include name="f3"/>

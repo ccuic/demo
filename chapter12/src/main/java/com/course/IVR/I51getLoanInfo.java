@@ -67,6 +67,14 @@ public class I51getLoanInfo {
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
+    @Test(groups = "I51getLoanInfo")//放款额度达到限制
+    public void s6() throws IOException {
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13799999999\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String result = IVRUtils.gongyong(url,number);
+        if(result.contains("\"msg\":\"execute successful\",\"code\":1000"))
+        {Assert.assertEquals(1,1);}
+        else {Assert.assertEquals(0,1);}
+    }
     @Test(groups = "I51getLoanInfo")//sign非法  正确为 1d1cfe35bb3df977223bf934e5a1ef08
     public void f1() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"6af9ced89dde03633d2d20d79c734a05\"}\n";
