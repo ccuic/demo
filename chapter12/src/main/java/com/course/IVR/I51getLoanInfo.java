@@ -21,7 +21,7 @@ public class I51getLoanInfo {
     }
     @Test(groups = "I51getLoanInfo")//验证银行卡号后4位、可还款
     public void s1() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"14587385111\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18256073540\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         String a="\"bankName\":\"中国建设银行\",\"shortBankNum\":\"2199\",\"status\":5";
         String b="\"msg\":\"execute successful\",\"code\":1000";
@@ -29,9 +29,19 @@ public class I51getLoanInfo {
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
+    @Test(groups = "I51getLoanInfo")//验证银行卡号后4位、可还款
+    public void s1_2() throws IOException {
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15255551295\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String result = IVRUtils.gongyong(url,number);
+        String a="\"msg\":\"execute successful\",\"code\":1000";
+        String b="\"msg\":\"execute successful\",\"code\":1000";
+        if(IVRUtils.strContain(result,a))
+        {Assert.assertEquals(1,1);}
+        else {Assert.assertEquals(0,1);}
+    }
     @Test(groups = "I51getLoanInfo")//放款中
     public void s2() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15309344296\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18130023696\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         String a="\"status\":4";
         if(IVRUtils.strContain(result,a))
@@ -51,7 +61,7 @@ public class I51getLoanInfo {
     }
     @Test(groups = "I51getLoanInfo")//放款失败，无失败原因
     public void s4() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18919890548\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15956589070\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         String a="\"status\":6";
         String b="\"haveReason\":false";
@@ -61,7 +71,7 @@ public class I51getLoanInfo {
     }
     @Test(groups = "I51getLoanInfo")//放款额度达到限制
     public void s5() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13900000043\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15398237215\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         if(result.contains("\"status\":7"))
         {Assert.assertEquals(1,1);}

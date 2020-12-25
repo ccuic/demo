@@ -43,7 +43,7 @@ public class I55repayInfo {
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
-    @Test(groups = "I55repayInfo")//result=3中间态
+    @Test(groups = "I55repayInfo")//result=  #18620200091
     public void s4() throws IOException {
         String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18620200091\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
