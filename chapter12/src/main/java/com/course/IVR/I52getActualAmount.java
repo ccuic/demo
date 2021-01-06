@@ -18,17 +18,17 @@ public class I52getActualAmount {
         String jiekou_url="/info/ivr/getActualAmount";
         url= TestConfig.strIVR_URL+jiekou_url;
     }
-    @Test(groups = "I52getActualAmount")//合法数据，验证可用额度 好分期SELECT id,loan_actual_amount FROM user_level
+    @Test(groups = "I52getActualAmount")//合法数据，验证可用额度 好分期SELECT id,loan_actual_amount FROM user_level  #uid=8186
     public void s1() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"17730213472\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18611539975\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"loanActualAmount\":\"20120.00\"}"))
+        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"loanActualAmount\":\"30050.00\"}"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
     @Test(groups = "I52getActualAmount")//合法数据，验证可用额度 好分期SELECT id,loan_actual_amount FROM user_level
     public void s2() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18256927116\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"17710325011\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         if(result.contains("\"msg\":\"execute successful\",\"code\":1000"))
         {Assert.assertEquals(1,1);}

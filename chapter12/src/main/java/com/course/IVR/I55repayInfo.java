@@ -10,7 +10,8 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 //5.5 最新还款信息查询接口，调用地址： /info/ivr/repayInfo
-// 先请求账务/v1/user/baseInfo 获取身份证号，再请求账务/web/query/gatherInfo
+// 先请求账务/v1/user/baseInfo 获取身份证号【还是查好分期库手机号查user_account获取uid，在查user_pid获取身份证号】
+// 再请求账务/web/query/gatherInfo  在这里根据身份证号，造数据 SELECT id,idcard_number,gather_status,unified_code FROM pay.user_gather_info WHERE idcard_number='G2Wo9qX3URe4PvxC69gYTEV+qQYyLkpPoh9W4rLLNNQ='
 public class I55repayInfo {
     private String url;
     @BeforeTest(groups = "loginTrue",description = "测试准备工作,获取Authorization对象")
@@ -19,9 +20,9 @@ public class I55repayInfo {
         String jiekou_url="/info/ivr/repayInfo";
         url= TestConfig.strIVR_URL+jiekou_url;
     }
-    @Test(groups = "I55repayInfo")//合法数据，result=1代收成功
+    @Test(groups = "I55repayInfo")//合法数据，result=1代收成功  7301
     public void s1() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"13900000002\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"17710325011\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":1}"))
         {Assert.assertEquals(1,1);}
@@ -29,7 +30,7 @@ public class I55repayInfo {
     }
     @Test(groups = "I55repayInfo")//result=2代收失败，failCode=1原因是“余额不足”
     public void s2() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"15010695238\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"17710325011\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":2,\"failCode\":1}"))
         {Assert.assertEquals(1,1);}
@@ -37,7 +38,7 @@ public class I55repayInfo {
     }
     @Test(groups = "I55repayInfo")//result=2代收失败，failCode=1原因不是“余额不足”
     public void s3() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18173855667\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"17710325011\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
         if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"result\":2}"))
         {Assert.assertEquals(1,1);}
