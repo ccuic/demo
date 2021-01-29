@@ -20,9 +20,9 @@ public class I53userInfo {
     }
     @Test(groups = "I53userInfo")//合法数据，验证可用额度
     public void s1() throws IOException {
-        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"18856005633\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
+        String number = "{\"param\":{\"businessLine\":\"haohuan\",\"mobile\":\"17710325011\"},\"appid\":\"kg1u9xn5gdrtolfq\",\"sign\":\"1d1cfe35bb3df977223bf934e5a1ef08\"}\n";
         String result = IVRUtils.gongyong(url,number);
-        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"shortIdcardCode\":\"1022\",\"shortPhone\":\"9975\"}"))
+        if(result.contains("\"msg\":\"execute successful\",\"code\":1000,\"data\":{\"shortIdcardCode\":\"3290\",\"shortPhone\":\"5011\"}"))
         {Assert.assertEquals(1,1);}
         else {Assert.assertEquals(0,1);}
     }
