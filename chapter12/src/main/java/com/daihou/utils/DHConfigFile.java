@@ -2,6 +2,7 @@ package com.daihou.utils;
 
 import com.course.model.AuthName;
 import com.course.model.InterfaceName;
+import com.daihou.model.DHInterfaceName;
 import com.daihou.model.DaiHou_API;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -12,44 +13,26 @@ public class DHConfigFile {
 
     public static String getProp(DaiHou_API name){
         String result = "";
-        if(name == DaiHou_API.DaiHou_URL){
-            result = bundle.getString("DaiHou_URL");
-        }
         if(name == DaiHou_API.AUTH){
             result = bundle.getString("AUTH");
         }
         return result;
     }
-    public static String getProp(AuthName name){
-        String result = "";
-        if(name == AuthName.AUTH){
-            result = bundle.getString("authValue");
-        }
-        return result;
-    }
 
-    public static String getUrl(InterfaceName name){
-        String address = bundle.getString("test.url");
+    public static String getUrl(DHInterfaceName name){
+        String address = bundle.getString("DaiHou_URL");
         String uri = "";
         String testUrl;
-        if(name == InterfaceName.GETUSERLIST){
-            uri = bundle.getString("getUserList.uri");
+        if(name == DHInterfaceName.PINGFEN){
+            uri = bundle.getString("pingfen.uri");
         }
 
-        if(name == InterfaceName.LOGIN){
+        if(name == DHInterfaceName.DAORU){
             uri = bundle.getString("login.uri");
         }
 
-        if(name == InterfaceName.UPDATEUSERINFO){
+        if(name == DHInterfaceName.DAOCHU){
             uri = bundle.getString("updateUserInfo.uri");
-        }
-
-        if(name == InterfaceName.GETUSERINFO){
-            uri = bundle.getString("getUserInfo.uri");
-        }
-
-        if(name == InterfaceName.ADDUSERINFO){
-            uri = bundle.getString("addUser.uri");
         }
         testUrl = address + uri;
         return testUrl;

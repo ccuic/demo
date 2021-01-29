@@ -1,6 +1,6 @@
 package com.daihou.pingfenka;
 
-import com.daihou.config.Config;
+import com.daihou.model.DHInterfaceName;
 import com.daihou.utils.DHHttpUtil;
 import com.daihou.model.DaiHou_API;
 import com.daihou.utils.DHConfigFile;
@@ -17,9 +17,7 @@ public class pingfen {
 	Map<String, String> headers;
 	@BeforeTest(groups = "loginTrue",description = "测试准备工作,获取Authorization对象")
 	public void beforeTest(){
-		Config.pingFengURL = DHConfigFile.getProp(DaiHou_API.DaiHou_URL);
-		String jiekou_url="/api/org/score/query/list";
-		url= Config.pingFengURL+jiekou_url;
+		url=DHConfigFile.getUrl(DHInterfaceName.PINGFEN);
 		headers=new HashMap<>();
 		//设置请求头中的Authorization
 		headers.put("Authorization", DHConfigFile.getProp(DaiHou_API.AUTH));
@@ -30,8 +28,12 @@ public class pingfen {
 		String result = DHHttpUtil.post_with_String(url,strBody,headers).toJSONString();
 		System.out.println("================ "+result);
 		if(result.contains("\"message\":\"操作成功\",\"status\":\"0\""))
-		{
-			Assert.assertEquals(1,1);}
-		else {Assert.assertEquals(0,1);}
+			{
+				Assert.assertEquals(1,1);
+			}
+		else
+			{
+				Assert.assertEquals(0,1);
+			}
 	}
 }
