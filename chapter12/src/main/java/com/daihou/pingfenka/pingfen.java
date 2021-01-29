@@ -22,7 +22,7 @@ public class pingfen {
 		//设置请求头中的Authorization
 		headers.put("Authorization", DHConfigFile.getProp(DaiHou_API.AUTH));
 	}
-	@Test(groups = "I53userInfo")//合法数据，验证可用额度
+	@Test(groups = "pingfen")//合法数据，验证可用额度
 	public void s1() throws IOException {
 		String strBody = "{\"pageNum\":null,\"pageSize\":null,\"order\":null}";
 		String result = DHHttpUtil.post_with_String(url,strBody,headers).toJSONString();
