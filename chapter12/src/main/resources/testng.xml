@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 
-<suite name="IVR测试套件">
+<suite name="测试套件">
+    <test name="贷后测试用例">
+        <classes>
+            <class name="com.daihou.pingfenka.pingfen">
+                <methods>
+                    <include name="s1"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <test name="IVR测试用例">
         <classes>
