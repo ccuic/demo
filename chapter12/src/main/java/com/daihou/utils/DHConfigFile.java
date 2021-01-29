@@ -8,8 +8,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class DHConfigFile {
-
-   private static ResourceBundle bundle= ResourceBundle.getBundle("application", Locale.CHINA);;
+    private static ResourceBundle bundle= ResourceBundle.getBundle("application", Locale.CHINA);
 
     public static String getProp(DaiHou_API name){
         String result = "";
@@ -26,13 +25,23 @@ public class DHConfigFile {
         if(name == DHInterfaceName.PINGFEN){
             uri = bundle.getString("pingfen.uri");
         }
-
         if(name == DHInterfaceName.DAORU){
-            uri = bundle.getString("login.uri");
+            uri = bundle.getString("daoru.uri");
         }
-
+        if(name == DHInterfaceName.DAORUJIANCHA){
+            uri = bundle.getString("daorujiancha.uri");
+        }
         if(name == DHInterfaceName.DAOCHU){
-            uri = bundle.getString("updateUserInfo.uri");
+            uri = bundle.getString("daochu.uri");
+        }
+        if(name == DHInterfaceName.TIAOZHENGBILI){
+            uri = bundle.getString("tiaozhengbili.uri");
+        }
+        if(name == DHInterfaceName.JILU){
+            uri = bundle.getString("jilu.uri");
+        }
+        if(name == DHInterfaceName.KUAIZHAO){
+            uri = bundle.getString("kuaizhao.uri");
         }
         testUrl = address + uri;
         return testUrl;
