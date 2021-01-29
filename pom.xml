@@ -5,11 +5,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>chapter5</module>
-        <module>chapter6</module>
-        <module>chapter9</module>
-        <module>chapter10</module>
-        <module>chapter11</module>
         <module>chapter12</module>
         <module>chapter13</module>
     </modules>
