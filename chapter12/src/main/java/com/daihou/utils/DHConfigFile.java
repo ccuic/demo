@@ -2,6 +2,7 @@ package com.daihou.utils;
 
 import com.course.model.AuthName;
 import com.course.model.InterfaceName;
+import com.daihou.model.DHInterfaceAuth;
 import com.daihou.model.DHInterfaceName;
 import com.daihou.model.DaiHou_API;
 import java.util.Locale;
@@ -17,7 +18,16 @@ public class DHConfigFile {
         }
         return result;
     }
-
+    public static String getUrl(DHInterfaceAuth name){
+        String address = bundle.getString("DaiHou_URL");
+        String uri = "";
+        String testUrl;
+        if(name == DHInterfaceAuth.AUTH){
+            uri = bundle.getString("auth.uri");
+        }
+        testUrl = address + uri;
+        return testUrl;
+    }
     public static String getUrl(DHInterfaceName name){
         String address = bundle.getString("DaiHou_URL");
         String uri = "";
