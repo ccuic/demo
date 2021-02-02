@@ -19,7 +19,9 @@ public static String getUrl(String name){
     String address = bundle.getString("DaiHou_URL");
     String uri = "";
     String testUrl;
-    uri = bundle.getString(name);
+    //这里做个转换，把输入的 DAORU 转换为 daoru.uri
+    String canshu=name.toLowerCase()+".uri";
+    uri = bundle.getString(canshu);
     testUrl = address + uri;
     return testUrl;
 }
