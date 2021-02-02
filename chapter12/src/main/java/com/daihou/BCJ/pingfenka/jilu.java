@@ -1,7 +1,7 @@
-package com.daihou.pingfenka;
+package com.daihou.BCJ.pingfenka;
 
 import com.daihou.config.TheAuth;
-import com.daihou.model.DHInterfaceName;
+import com.daihou.model.ceres.In_Pingfenka;
 import com.daihou.utils.DHConfigFile;
 import com.daihou.utils.DHHttpUtil;
 import org.testng.Assert;
@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class daochu {
+public class jilu {
 	private String url;
 	Map<String, String> headers;
 	@BeforeTest(groups = "loginTrue",description = "测试准备工作,获取Authorization对象")
 	public void beforeTest() throws IOException {
-		url=DHConfigFile.getUrl(DHInterfaceName.DAOCHU);
+		url=DHConfigFile.getUrl(In_Pingfenka.JILU.toString());
 		headers=new HashMap<>();
 		//设置请求头中的Authorization
 		headers.put("Authorization", TheAuth.getAuth());
@@ -25,10 +25,10 @@ public class daochu {
 
 	@Test(groups = "pingfen")//合法数据，验证可用额度
 	public void s1() throws IOException {
-		String strBody = "{}";
+		String strBody = "{\"pageNum\":1,\"pageSize\":20,\"order\":null}";
 		String result = DHHttpUtil.post_with_String(url,strBody,headers).toJSONString();
 		System.out.println("================ "+result);
-		if(result.contains("worksheets/sheet1"))
+		if(result.contains("\"message\":\"操作成功\",\"status\":\"0\""))
 			{
 				Assert.assertEquals(1,1);
 			}

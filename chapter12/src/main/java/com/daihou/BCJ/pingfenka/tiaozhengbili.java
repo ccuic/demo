@@ -1,7 +1,7 @@
-package com.daihou.pingfenka;
+package com.daihou.BCJ.pingfenka;
 
 import com.daihou.config.TheAuth;
-import com.daihou.model.DHInterfaceName;
+import com.daihou.model.ceres.In_Pingfenka;
 import com.daihou.utils.DHConfigFile;
 import com.daihou.utils.DHHttpUtil;
 import org.testng.Assert;
@@ -17,7 +17,7 @@ public class tiaozhengbili {
 	Map<String, String> headers;
 	@BeforeTest(groups = "loginTrue",description = "测试准备工作,获取Authorization对象")
 	public void beforeTest() throws IOException {
-		url=DHConfigFile.getUrl(DHInterfaceName.TIAOZHENGBILI);
+		url=DHConfigFile.getUrl(In_Pingfenka.TIAOZHENGBILI.toString());
 		headers=new HashMap<>();
 		//设置请求头中的Authorization
 		headers.put("Authorization", TheAuth.getAuth());

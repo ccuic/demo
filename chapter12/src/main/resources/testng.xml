@@ -4,17 +4,17 @@
 <suite name="测试套件">
     <test name="贷后测试用例">
         <classes>
-            <class name="com.daihou.pingfenka.pingfen">
+            <class name="com.daihou.BCJ.pingfenka.pingfen">
                 <methods>
                     <include name="s1"/>
                 </methods>
             </class>
-            <class name="com.daihou.pingfenka.daoru">
+            <class name="com.daihou.BCJ.pingfenka.daoru">
                 <methods>
                     <include name="s1"/>
                 </methods>
             </class>
-            <class name="com.daihou.pingfenka.daorujiancha">
+            <class name="com.daihou.BCJ.pingfenka.daorujiancha">
                 <methods>
                     <include name="s1"/>
                 </methods>
@@ -24,17 +24,17 @@
 <!--                    <include name="s1"/>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="com.daihou.pingfenka.tiaozhengbili">
+            <class name="com.daihou.BCJ.pingfenka.tiaozhengbili">
                 <methods>
                     <include name="s1"/>
                 </methods>
             </class>
-            <class name="com.daihou.pingfenka.jilu">
+            <class name="com.daihou.BCJ.pingfenka.jilu">
                 <methods>
                     <include name="s1"/>
                 </methods>
             </class>
-            <class name="com.daihou.pingfenka.kuaizhao">
+            <class name="com.daihou.BCJ.pingfenka.kuaizhao">
                 <methods>
                     <include name="s1"/>
                 </methods>

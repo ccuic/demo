@@ -1,10 +1,8 @@
 package com.daihou.config;
 
 import com.daihou.model.DHInterfaceAuth;
-import com.daihou.model.DHInterfaceName;
 import com.daihou.utils.DHConfigFile;
 import com.daihou.utils.DHHttpUtil;
-import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
 import java.util.HashMap;
